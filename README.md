@@ -1,73 +1,167 @@
-# Welcome to your Lovable project
+# Prestige Estates - Modern Real Estate Website
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/c75e1c84-f6b3-433e-b140-2b3de8197540
+A modern, responsive real estate website built with React, Vite, TypeScript, and Tailwind CSS. Features a clean, professional design with navy and gold accents, optimized for performance and SEO.
 
-## How can I edit this code?
+## Key Features
 
-There are several ways of editing your application.
+### Navigation & Routing
+- **Client-side routing** using React Router for seamless navigation
+- **Automatic scroll-to-top** on route changes with smooth animation (respects `prefers-reduced-motion`)
+- **Active link states** in footer navigation with visual indicators
+- All internal links use React Router's `<Link>` component for SPA behavior
 
-**Use Lovable**
+### Pages
+- **Home**: Hero section, featured properties, testimonials with AI-generated avatars, FAQ, contact form
+- **Properties**: Grid layout with filtering options
+- **Agents**: Profile cards with contact information
+- **About**: Company story, statistics, timeline
+- **Contact**: Form with validation, map integration
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c75e1c84-f6b3-433e-b140-2b3de8197540) and start prompting.
+### Design & Accessibility
+- **Responsive design** optimized for all devices
+- **Keyboard navigation** support with visible focus states
+- **ARIA labels** on interactive elements
+- **Semantic HTML** structure for better accessibility
+- **Optimized images** with proper alt text
 
-Changes made via Lovable will be committed automatically to this repo.
+### Performance Optimizations
+- **Lazy loading** for images
+- **Code splitting** with React Router
+- **Optimized bundle size** with Vite
+- **SEO optimization** with meta tags and sitemap
 
-**Use your preferred IDE**
+## Technical Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui
+- **Routing**: React Router v6
+- **Icons**: Lucide React
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Project Structure
 
-Follow these steps:
+```
+src/
+├── assets/          # Images and static assets
+│   ├── avatar-*.jpg # AI-generated testimonial avatars (6 unique)
+│   ├── property-*.jpg
+│   └── agent-*.jpg
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   └── ScrollToTop.tsx # Handles scroll behavior on navigation
+│   ├── home/        # Home page sections
+│   └── ui/          # Reusable UI components
+├── pages/           # Page components
+├── lib/             # Utilities
+└── App.tsx          # Main app component with routing
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+## Custom Features
+
+### ScrollToTop Component
+Located in `src/components/layout/ScrollToTop.tsx`, this component:
+- Automatically scrolls to top on route changes
+- Respects user's motion preferences
+- Uses smooth scrolling when motion is allowed
+
+### Footer Navigation
+The footer (`src/components/layout/Footer.tsx`) includes:
+- Internal navigation links with active states
+- Social media icons
+- Contact information
+- Service listings
+
+### Testimonials Section
+Features 6 testimonials with:
+- AI-generated avatar images (not real people)
+- Star ratings
+- Professional testimonial cards
+- Responsive grid layout
+
+To update testimonial avatars, replace the images in `src/assets/avatar-*.jpg`
+
+## Development
+
+### Prerequisites
+- Node.js & npm installed ([install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
+
+### Local Development
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Building for Production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Create production build
+npm run build
 
-**Use GitHub Codespaces**
+# Preview production build
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deployment
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
+### Via Lovable
 Simply open [Lovable](https://lovable.dev/projects/c75e1c84-f6b3-433e-b140-2b3de8197540) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
+### Custom Domain
+To connect a custom domain:
+1. Navigate to Project > Settings > Domains
+2. Click "Connect Domain"
+3. Follow the DNS configuration instructions
 
-Yes, you can!
+Read more: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## SEO Configuration
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The project includes:
+- `public/sitemap.xml` - XML sitemap for search engines
+- `public/robots.txt` - Crawler instructions
+- Meta tags in `index.html`
+- Semantic HTML structure throughout
+
+## Accessibility Checklist
+
+✅ Keyboard navigation support  
+✅ Focus states on interactive elements  
+✅ ARIA labels on navigation links  
+✅ Semantic HTML structure  
+✅ Alt text on all images  
+✅ Color contrast compliance  
+✅ Responsive design  
+✅ Smooth scrolling with motion preference support  
+
+## Performance Targets
+
+- Lighthouse Performance: ≥ 90
+- Lighthouse SEO: ≥ 90
+- Lighthouse Accessibility: ≥ 90
+- Lighthouse Best Practices: ≥ 90
+
+## License
+
+This project is created with Lovable. See license terms at [lovable.dev](https://lovable.dev)
+
+## Support
+
+For issues or questions:
+- Visit the [Lovable Project](https://lovable.dev/projects/c75e1c84-f6b3-433e-b140-2b3de8197540)
+- Check the [Lovable Documentation](https://docs.lovable.dev/)
+- Join the [Lovable Discord Community](https://discord.gg/lovable)

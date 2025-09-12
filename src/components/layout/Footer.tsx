@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
+  const location = useLocation();
+  
+  const isActive = (path: string) => location.pathname === path;
+  
   return (
     <footer className="bg-gradient-primary text-white">
       <div className="container mx-auto px-4 py-12">
@@ -27,22 +31,47 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/properties" className="text-white/80 hover:text-gold transition-colors">
-                  Properties
+                <Link 
+                  to="/" 
+                  className={`${isActive('/') ? 'text-gold font-semibold underline' : 'text-white/80'} hover:text-gold transition-colors`}
+                  aria-label="Go to Home"
+                >
+                  Home
                 </Link>
               </li>
               <li>
-                <Link to="/agents" className="text-white/80 hover:text-gold transition-colors">
+                <Link 
+                  to="/properties" 
+                  className={`${isActive('/properties') ? 'text-gold font-semibold underline' : 'text-white/80'} hover:text-gold transition-colors`}
+                  aria-label="Go to Properties"
+                >
+                  Our Properties
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/agents" 
+                  className={`${isActive('/agents') ? 'text-gold font-semibold underline' : 'text-white/80'} hover:text-gold transition-colors`}
+                  aria-label="Go to Agents"
+                >
                   Our Agents
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/80 hover:text-gold transition-colors">
+                <Link 
+                  to="/about" 
+                  className={`${isActive('/about') ? 'text-gold font-semibold underline' : 'text-white/80'} hover:text-gold transition-colors`}
+                  aria-label="Go to About Us"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/80 hover:text-gold transition-colors">
+                <Link 
+                  to="/contact" 
+                  className={`${isActive('/contact') ? 'text-gold font-semibold underline' : 'text-white/80'} hover:text-gold transition-colors`}
+                  aria-label="Go to Contact"
+                >
                   Contact
                 </Link>
               </li>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bed, Bath, Square, MapPin } from "lucide-react";
@@ -117,9 +118,15 @@ const FeaturedProperties = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="navy" size="lg">
-            View All Properties
-          </Button>
+          <Link to="/properties">
+            <Button 
+              variant="navy" 
+              size="lg" 
+              className="hover:scale-105 hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              View All Properties
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
