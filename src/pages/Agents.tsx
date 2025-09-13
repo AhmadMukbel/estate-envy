@@ -33,7 +33,7 @@ const Agents = () => {
                     <img
                       src={photo}
                       alt={`Headshot of ${agent.name}`}
-                      className="w-full h-80 object-cover"
+                      className="w-full h-96 object-contain bg-muted"
                       loading={index >= 3 ? "lazy" : "eager"}
                       width={1200}
                       height={1500}

@@ -27,7 +27,7 @@ const FeaturedAgents = () => {
                 <img
                   src={photo}
                   alt={`Headshot of ${agent.name}`}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                  className="w-32 h-32 rounded-full mx-auto mb-4 object-contain bg-muted"
                   loading={index === 0 ? "eager" : "lazy"}
                   width={800}
                   height={800}
