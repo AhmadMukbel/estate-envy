@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // 👇 This line makes GitHub Pages work (replace with your repo name if changed)
-  base: "/estate-envy/",
+  base: "/",
 
   server: {
     host: "::",
