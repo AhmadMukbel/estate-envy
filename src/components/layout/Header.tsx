@@ -1,87 +1,42 @@
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Home, Building2, Users, Info, Mail, Calendar } from "lucide-react";
+import { Dock, DockIcon, DockItem, DockLabel } from "@/components/ui/dock";
 
 const Header = () => {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/properties", label: "Properties" },
-    { path: "/agents", label: "Agents" },
-    { path: "/about", label: "About" },
-    { path: "/contact", label: "Contact" },
+    { path: "/", label: "Home", icon: Home },
+    { path: "/properties", label: "Properties", icon: Building2 },
+    { path: "/agents", label: "Agents", icon: Users },
+    { path: "/about", label: "About", icon: Info },
+    { path: "/contact", label: "Contact", icon: Mail },
+    { path: "#schedule", label: "Schedule", icon: Calendar },
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 py-4">
       <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="font-serif text-2xl font-bold text-primary">
-              Prestige Estates
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`font-medium transition-colors ${
-                  location.pathname === link.path
-                    ? "text-secondary"
-                    : "text-foreground hover:text-primary"
-                }`}
-              >
-                {link.label}
+        <div className="flex items-center justify-center">
+          <Dock className="bg-background/80 backdrop-blur-md border border-border shadow-lg">
+            {navLinks.map((item) => (
+              <Link key={item.path} to={item.path}>
+                <DockItem
+                  className={`aspect-square rounded-full transition-colors ${
+                    location.pathname === item.path
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted hover:bg-muted/80"
+                  }`}
+                >
+                  <DockLabel>{item.label}</DockLabel>
+                  <DockIcon>
+                    <item.icon className="h-full w-full" />
+                  </DockIcon>
+                </DockItem>
               </Link>
             ))}
-            <Button variant="gold" size="lg">
-              Schedule Viewing
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6 text-primary" />
-            ) : (
-              <Menu className="h-6 w-6 text-primary" />
-            )}
-          </button>
+          </Dock>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 w-full bg-white border-t border-border animate-slide-in">
-            <div className="flex flex-col p-4 space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`font-medium py-2 transition-colors ${
-                    location.pathname === link.path
-                      ? "text-secondary"
-                      : "text-foreground hover:text-primary"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Button variant="gold" size="lg" className="w-full">
-                Schedule Viewing
-              </Button>
-            </div>
-          </div>
-        )}
       </nav>
     </header>
   );
