@@ -15,10 +15,10 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 py-4">
+    <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 py-2">
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-center">
-          <Dock className="bg-background/80 backdrop-blur-md border border-border shadow-lg">
+          <Dock panelHeight={48} magnification={60} className="bg-background/80 backdrop-blur-md border border-border shadow-lg">
             {navLinks.map((item) => (
               <Link key={item.path} to={item.path}>
                 <DockItem
