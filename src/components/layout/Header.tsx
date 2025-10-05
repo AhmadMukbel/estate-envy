@@ -20,20 +20,21 @@ const Header = () => {
         <div className="flex items-center justify-center">
           <Dock panelHeight={48} magnification={60} className="bg-background/80 backdrop-blur-md border border-border shadow-lg">
             {navLinks.map((item) => (
-              <Link key={item.path} to={item.path}>
-                <DockItem
-                  className={`aspect-square rounded-full transition-colors ${
-                    location.pathname === item.path
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted hover:bg-muted/80"
-                  }`}
-                >
-                  <DockLabel>{item.label}</DockLabel>
-                  <DockIcon>
+              <DockItem
+                key={item.path}
+                className={`aspect-square rounded-full transition-colors pointer-events-auto ${
+                  location.pathname === item.path
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted hover:bg-muted/80"
+                }`}
+              >
+                <DockLabel>{item.label}</DockLabel>
+                <DockIcon>
+                  <Link to={item.path} className="flex items-center justify-center w-full h-full">
                     <item.icon className="h-full w-full" />
-                  </DockIcon>
-                </DockItem>
-              </Link>
+                  </Link>
+                </DockIcon>
+              </DockItem>
             ))}
           </Dock>
         </div>

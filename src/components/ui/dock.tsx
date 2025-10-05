@@ -146,13 +146,13 @@ function DockItem({ children, className }: DockItemProps) {
   return (
     <motion.div
       ref={ref}
-      style={{ width }}
+      style={{ width, pointerEvents: 'auto' }}
       onHoverStart={() => isHovered.set(1)}
       onHoverEnd={() => isHovered.set(0)}
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       className={cn(
-        'relative inline-flex items-center justify-center',
+        'relative inline-flex items-center justify-center cursor-pointer',
         className
       )}
       tabIndex={0}
